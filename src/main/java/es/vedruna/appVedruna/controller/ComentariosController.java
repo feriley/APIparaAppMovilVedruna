@@ -16,12 +16,20 @@ public class ComentariosController {
     
     private final ComentarioServiceImpl comentarioServiceImpl;
 
-    @GetMapping("/{id_publicacion}")
-    public List<Comentario> getComentarioById_publicacion(@PathVariable String id_publicacion){
-        return comentarioServiceImpl.getAllComentarios(id_publicacion);
+    // Obtener todos los comentarios (nuevo endpoint)
+    @GetMapping()
+    public List<Comentario> getAllComentarios() {
+        return comentarioServiceImpl.getAllComentarios();
     }
-    
-    @PostMapping("/put")
+
+    // Obtener comentarios por ID de publicación
+    @GetMapping("/{id_publicacion}")
+    public List<Comentario> getComentariosByIdPublicacion(@PathVariable String id_publicacion) {
+        return comentarioServiceImpl.getComentariosByIdPublicacion(id_publicacion);
+    }
+
+    // Crear un nuevo comentario (mejoramos la ruta)
+    @PostMapping()
     public Comentario createComentario(@RequestBody Comentario comentario) {
         return comentarioServiceImpl.crearComentario(comentario);
     }

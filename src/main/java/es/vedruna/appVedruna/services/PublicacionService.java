@@ -9,6 +9,8 @@ import java.util.Optional;
 public interface PublicacionService {
     List<Publicacion> getAllPublicaciones();
     Publicacion createPublicacion(Publicacion publicacion);
+    Optional<Publicacion> updatePublicacion(String id, Publicacion updatedData);
     Publicacion updateLike(String id_publicacion, String id_user);
-    Optional<Publicacion> getById (String id_publicacion);
+    Optional<Publicacion> getById(String id_publicacion);
+    boolean deletePublicacion(String id, String userId);
 }

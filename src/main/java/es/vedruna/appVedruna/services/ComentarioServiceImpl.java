@@ -9,16 +9,25 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class ComentarioServiceImpl implements ComentarioService{
- 
+public class ComentarioServiceImpl implements ComentarioService {
+
     private final ComentariosRepository comentariosRepository;
+
+    // Guardar nuevo comentario
     @Override
     public Comentario crearComentario(Comentario comentario) {
         return comentariosRepository.save(comentario);
     }
 
+    // Obtener todos los comentarios
     @Override
-    public List<Comentario> getAllComentarios(String id_publicacion) {
+    public List<Comentario> getAllComentarios() {
+        return comentariosRepository.findAll();
+    }
+
+    // Obtener comentarios de una publicación
+    @Override
+    public List<Comentario> getComentariosByIdPublicacion(String id_publicacion) {
         return comentariosRepository.findAllByIdPublicacion(id_publicacion);
     }
 }
