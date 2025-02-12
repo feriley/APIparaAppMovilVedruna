@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: micro01
+  data:
+    mongodb:
+      ## aquí pondreis la URL que teneis de mongoAtlas, recordar que teneis que poner en la URl despues de .net/<basedatos>?retry...
+      ## en caso de tener una mongo en local -> mongodb://localhost:27018/<basededatos>
+      uri: mongodb+srv://feriley8:thh14GchXDDerqTR@cluster0.tb6h9.mongodb.net/proyecto01?retryWrites=true&w=majority&appName=Cluster0
+      
+springdoc:
+  api-docs:
+    enable: true
+    path: /v3/api-docs
+  swagger-ui:
+    path: /
